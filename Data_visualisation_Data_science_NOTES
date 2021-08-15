@@ -1,0 +1,91 @@
+data['SALES'].plot.bar()
+
+#to plot the graph horizontally
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data['SALES'].plot.barh()
+
+#to plot the graph horizontally
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.plot.barh()
+
+#to plot the graph horizontally
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.drop(columns = ['ID'],inplace = True)
+data
+#removing the ID column and then plotting the graph
+
+
+data.plot.bar()
+#ID is removed
+
+data.plot.bar(stacked = True)
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.plot.barh(stacked = True)
+
+#In form of area 
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.plot.area()
+#or we can write it as data.plot.area(stacked= True)
+
+
+#In form of area transparent
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.plot.area(stacked= False)
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.hist()
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.plot.hist()
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data
+
+data_analytics = pandas.DataFrame({'Actual Sales': data['SALES'],
+                                   'Total Sales':(665,665,665,665,665,665),
+                                   'Average Sales':(110,110,110,110,110,110)})
+data_analytics.plot.bar()
+#or we can write as data_analytics.plot.bar(stacked = True) 
+
+dataanalytics.plot.bar(stacked = True)
+
+global temperature['dt']= pd.to_datetim(global temperature['dt'])
+
+
+import matplotlib.pyplot #• In 2D, the first dimension corresponds to rows, the second to columns.
+#for multidimensional a, a[0] is interpreted by taking all elements in the unspecified dimensions.
+
+import numpy as np
+a = np.triu(np.ones((3, 3)), 1)
+help(np.triu)
+
+a = np.arange(9).reshape(3, 3)
+help(np.shape)
