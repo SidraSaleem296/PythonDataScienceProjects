@@ -1,0 +1,82 @@
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data
+#and if  there are NaN values and you want to change them in table then use .fillna(0 ,inplace = True)
+
+#SUM OF PRICES AND SALES
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1) #skipping row iis neccessary to find the sum properly because in first row
+                       #there are string vales
+data['SALES'].sum()
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1)
+#to find the minimum sales we will use .min method
+data['PRICE'].min()
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1)
+#to find the maximum sales we will use .max method
+data['PRICE'].max()
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1)
+#to find the mean or average sales we will use .mean method
+data['PRICE'].mean()
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1)
+#to find the mod sales we will use .mod method
+data['PRICE'].mode()
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1)
+#to find the median or midddle vale sales we will use .median method
+data['PRICE'].median()
+
+#to round the values we use round function
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1)
+#to find the median sales we will use .median method
+round(data['PRICE'].median(),2) #2 is to indicate till how much numbers after decimal should be rounded
+
+#to find the range we will subtract the minimum value from the maximum value
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                       skiprows =1)
+data['PRICE'].max()- data['PRICE'].min() #we can replace min with the desired vale we want to compare from
+
+#ANALYTICS
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND'],skiprows =1)
+data_analysis = pandas.DataFrame({'Total Sales':data['SALES'].sum(),
+                               'Average': data['SALES'].mean(),
+                               'Median Sales': data['SALES'].median(),'Moderate Sales' :data['SALES'].mode()
+                              ,'Range of Sales': data['SALES'].max()-data['SALES'].min()},
+                               index = [1,2,3,4,5])
+data_analysis
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,names = ['ID','NAMES','PRICE','SALES','BRAND']
+                      ,skiprows = 1)
+data.describe()
+#details regarding the data
