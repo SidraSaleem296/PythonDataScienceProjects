@@ -1,0 +1,78 @@
+# DATA CLEANING
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'])
+data
+#changing the column names in row as id to ID
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                      skiprows = 1)
+data
+#skipping the rows
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'])
+del (data['PRICE'])
+del (data['SALES'])
+#it will REMOVE THE COLUMNS but do remove them one by one
+data
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                      skiprows = 1)
+data
+data.isnull()
+#means there is no block with NaN (not a number)
+
+#there is no null value but if in case there is , we can replace it with .fillna() function
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                      skiprows = 1)
+data
+data.fillna(0)
+#we can also pass string as in replacement of zero we can write 'none'
+#butthere is no block with NaN (not a number)
+
+#there is no null value but if in case there is , we can replace it with .fillna() function
+#if we want to replace the null values as the upper one , we will use .pad function and to replace with lower ,we will use .bfill
+#and to remove those rows with null values ,we will use the function .dropna
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                      skiprows = 1)
+data
+data.fillna(0)
+#we can also pass string as in replacement of zero we can write 'none'
+#butthere is no block with NaN (not a number)
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'],
+                      skiprows = 1)
+data.drop([2,4])
+#so second and fourth rows are removed
+
+import pandas
+csv_dir = 'csv_data.csv'
+data = pandas.read_csv(csv_dir,
+                      names = ['ID','NAMES','PRICE','SALES','BRAND'])
+data.drop(columns=['PRICE','SALES'])
+data
+
+data.drop(columns=['PRICE','SALES'])
+#another method to REMOVE THE COLUMNS
+
+data
