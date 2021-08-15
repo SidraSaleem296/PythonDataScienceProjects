@@ -1,0 +1,61 @@
+import pandas as pd
+import numpy as np
+import plotly.express as px
+import seaborn as sns
+import warnings
+warnings.filterwarnings('ignore')
+import matplotlib.pyplot as plt
+
+### 3) Is there a global warming?
+    Let's read the data from the "GlobalTemperatures.csv" file, which has a monthly Earth’s temperature and plot it on the chart.
+
+
+
+global_temp=pd.read_csv('F:/Time_Series_Analysis/Global_Warming/Dataset/GlobalTemperatures.csv')
+
+global_temp.head()
+
+global_temp['dt'][0].split('-')[0]
+
+def fetch_year(date):
+    return date.split('-')[0]
+
+global_temp['years']=global_temp['dt'].apply(fetch_year)
+
+
+dt	LandAverageTemperature	LandAverageTemperatureUncertainty	LandMaxTemperature	LandMaxTemperatureUncertainty	LandMinTemperature	LandMinTemperatureUncertainty	LandAndOceanAverageTemperature	LandAndOceanAverageTemperatureUncertainty	years
+0	1750-01-01	3.034	3.574	NaN	NaN	NaN	NaN	NaN	NaN	1750
+1	1750-02-01	3.083	3.702	NaN	NaN	NaN	NaN	NaN	NaN	1750
+2	1750-03-01	5.626	3.076	NaN	NaN	NaN	NaN	NaN	NaN	1750
+3	1750-04-01	8.490	2.451	NaN	NaN	NaN	NaN	NaN	NaN	1750
+4	1750-05-01	11.573	2.072	NaN	NaN	NaN	NaN	NaN	NaN	1750
+data=global_temp.groupby('years').agg({'LandAverageTemperature':'mean','LandAverageTemperatureUncertainty':'mean'}).reset_index()
+data
+years	LandAverageTemperature	LandAverageTemperatureUncertainty
+0	1750	8.719364	2.637818
+1	1751	7.976143	2.781143
+2	1752	5.779833	2.977000
+3	1753	8.388083	3.176000
+4	1754	8.469333	3.494250
+...	...	...	...
+261	2011	9.516000	0.082000
+262	2012	9.507333	0.083417
+263	2013	9.606500	0.097667
+264	2014	9.570667	0.090167
+265	2015	9.831000	0.092167
+266 rows × 3 columns
+
+data['Uncertainity_top']=data['LandAverageTemperature'] + data['LandAverageTemperatureUncertainty']
+data['Uncertainity_bottom']=data['LandAverageTemperature'] - data['LandAverageTemperatureUncertainty']
+data.head()
+years	LandAverageTemperature	LandAverageTemperatureUncertainty	Uncertainity_top	Uncertainity_bottom
+0	1750	8.719364	2.637818	11.357182	6.081545
+1	1751	7.976143	2.781143	10.757286	5.195000
+2	1752	5.779833	2.977000	8.756833	2.802833
+3	1753	8.388083	3.176000	11.564083	5.212083
+4	1754	8.469333	3.494250	11.963583	4.975083
+data.columns
+Index(['years', 'LandAverageTemperature', 'LandAverageTemperatureUncertainty',
+       'Uncertainity_top', 'Uncertainity_bottom'],
+      dtype='object')
+​
